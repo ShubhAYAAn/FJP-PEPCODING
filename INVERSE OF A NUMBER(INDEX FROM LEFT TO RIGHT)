@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main{
+
+    public static int count(int n)
+    {
+        int c=0;
+        while(n>0)
+        {
+            n=n/10;
+            c++;
+        }
+        return c;
+    }
+    public static int inverse(int n)
+    {
+        int inv=0;                                                               //354162-->n
+        int len= count(n);                                                       //123456-->indexing
+        int temp=len;
+        while(n>0)                                                               //461325-->after inverse from left to right indexing
+        {                                                                        //123456-->indexing
+            int d=n%10;
+            inv= inv + (temp * (int)Math.pow(10, (len-d))) ;
+            n=n/10;
+            temp--;
+        }
+        return inv;
+    }
+
+public static void main(String[] args) {
+  // write your code here  
+  Scanner scn=new Scanner(System.in);
+int n=scn.nextInt();
+int ans=inverse(n);
+System.out.println(ans);
+ }
+}
