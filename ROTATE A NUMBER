@@ -1,0 +1,48 @@
+import java.util.*;
+   
+   public class Main{
+       public static int count(int n)
+       {
+           int c=0;
+           while(n!=0)
+           {
+               n=n/10;
+               c++;
+           }
+           return c;
+       }
+       
+       public static int rotateNumber(int n, int k) {
+        int len = count(n);
+
+        k = (k % len + len) % len;                   //MODULUS FORMULA(A-B)%K
+        int div=1; int mult=1;                      //=(A%K - B%K +K) % K; 
+
+    for(int i= 1; i<= len; i++)
+    {
+        if(i<=k)
+        {
+            div=div*10;                               //10 power 3
+        }
+        else
+        {
+            mult*=10;                                 //10 power 4
+        }
+    }
+
+        int a = n / div;                            //5629
+        int b = n % div;                            //84
+
+        return (b * mult + a);                     //84*10 power 4 + 5629 = 845629
+    }
+   
+   public static void main(String[] args) {
+     // write your code here  
+     Scanner scn=new Scanner(System.in);
+     int n=scn.nextInt();
+     int k=scn.nextInt();
+     
+     int ans=rotateNumber(n, k);
+     System.out.println(ans);
+    }
+   }
