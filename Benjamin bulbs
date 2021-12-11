@@ -1,0 +1,19 @@
+import java.util.*;
+  
+  public class Main{
+      
+      public static void benjamin(int n)
+      {                                                 //all will be perfect square 
+          for(int i=1; i*i<=n; i++)                     //n=6 (initially all are off)
+          {                                     //  1st  2nd  3rd  4th  5th  6th
+              System.out.println(i*i);          //1 on*   
+          }                                     //2 on   off
+      }                                         //3 on        off
+                                                //4 on   off        on*
+  public static void main(String[] args) {      //5 on                  off
+    // write your code here                     //6 on   off   on             off
+    Scanner scn=new Scanner(System.in);
+int n=scn.nextInt();
+benjamin(n);
+   }
+  }
