@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Main{
+    public static int inverse(int n)
+    {
+        int inv=0;
+        int idx=1;
+        
+        while(n>0)
+        {
+            int d=n%10;
+            inv= inv + (idx * (int)Math.pow(10, d-1)) ;
+            n=n/10;
+            idx++;
+        }
+        return inv;
+    }
+
+public static void main(String[] args) {
+  // write your code here  
+  Scanner scn=new Scanner(System.in);
+int n=scn.nextInt();
+int ans=inverse(n);
+System.out.println(ans);
+ }
+}
